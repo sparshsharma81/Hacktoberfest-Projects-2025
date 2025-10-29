@@ -1,88 +1,46 @@
-# Hacktoberfest Projects Repository
+## Godseye OSINT Toolkit (MVP)
 
-Welcome to the **Hacktoberfest Projects** repository! This is a place where developers can upload and showcase their full stack projects. Whether you're an experienced developer or just starting, feel free to contribute your projects and help others learn.
+Godseye is a privacy-respecting, public-data OSINT toolkit. It aggregates open sources like crt.sh (certificate transparency), Wayback Machine, and GitHub to help investigate domains and usernames.
 
-## Table of Contents
+### Features (MVP)
+- Domain enrichment: subdomains via crt.sh, historical URLs via Wayback Machine
+- Username enrichment: presence checks on popular platforms + GitHub profile summary
+- HTTP API (FastAPI) and CLI (Typer)
 
-- [About the Repository](#about-the-repository)
-- [How to Get Started](#how-to-get-started)
-- [How to Contribute](#how-to-contribute)
-- [Past Contributors](#contributors)
-- [License](#license)
+### Quickstart
 
-## About the Repository
+1) Python 3.10+
 
-This repository collects full stack projects using popular technologies like:
-
-- **Frontend**: HTML, CSS, JavaScript, React, Angular, Vue.js, etc.
-- **Backend**: PHP, Go, Node.js, Express, Django, etc.
-- **Databases**: MongoDB, PostgreSQL, MySQL, etc.
-
-Each project is designed to be easy to set up and customize, offering a great resource for developers of all levels.
-
-## How to Get Started
-
-Follow these steps to start using this repository:
-
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/gitsofaryan/Hacktoberfest-Projects-2024.git
-   cd Hacktoberfest-Projects-2024
-
-2. Explore projects: Look through the folders to find projects that interest you.
-
-3. Run a project: Each project has a README file with instructions on how to set it up and run.
-
-
-## How to Contribute
-We welcome your contributions! Here’s how to add your project to the repository:
-
-### Steps to Contribute
-
-1. Fork the repository: Click the "Fork" button at the top of the page.
-
-2. Create a new branch for your project:
-
+2) Create a virtual environment and install deps
 ```bash
-git checkout -b your-project-name
+python -m venv .venv
+. .venv/Scripts/activate  # Windows PowerShell: . .venv/Scripts/Activate.ps1
+pip install -r requirements.txt
 ```
 
-3. Add your project: Create a new folder for your project and include:
+3) (Optional) Configure environment variables
+Copy `.env.example` to `.env` and add tokens if you have them.
 
-- Your source code
-- A README file with instructions for setup and running the project
-- Any other important files (e.g., images, config files)
-
-4. Commit your changes:
-
+4) Run the CLI
 ```bash
-git add .
-git commit -m "Added my project: Your Project Name"
+python -m godseye.cli domain example.com
+python -m godseye.cli username torvalds
 ```
 
-5. Push to your branch:
+5) Run the API
 ```bash
-git push origin your-project-name
+uvicorn godseye.api.main:app --reload
+# Open: http://127.0.0.1:8000/docs
 ```
 
-6. Create a Pull Request: Go back to the original repository and click "New Pull Request."
+### Environment variables
+- `GITHUB_TOKEN` (optional): increases GitHub rate limits for user lookups.
 
-## Pull Request Guidelines
+### Notes
+- Only public sources are used. Respect rate limits and each source's ToS.
+- Results are best-effort and may contain inaccuracies. Always verify critical findings.
 
-- Make sure your README clearly explains how to set up and run your project.
-- Follow best coding practices.
-- Provide a brief description of your project in the Pull Request.
+### License
+MIT
 
-[![Contributors](https://img.shields.io/github/contributors/gitsofaryan/Hacktoberfest-Projects-2025?style=for-the-badge)](https://github.com/gitsofaryan/Hacktoberfest-Projects-2025/graphs/contributors)
 
-<!-- Contributors avatars (auto-updating) -->
-<p align="left">
-  <a href="https://github.com/gitsofaryan/Hacktoberfest-Projects-2025/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=gitsofaryan/Hacktoberfest-Projects-2025" alt="Contributors" />
-  </a>
-</p>
-
-See the full list of contributors and their contributions on the [`GitHub Contributors Graph`](https://github.com/gitsofaryan/Hacktoberfest-Projects-2025/graphs/contributors).
-
-### Thank you for contributing to the Hacktoberfest Projects repository! We’re excited to see your projects and hope this helps you grow as a developer. Happy coding!

@@ -1,23 +1,22 @@
-# Java
-*.class
-*.log
-*.jar
-*.war
-*.ear
-# Build directories
-target/
-build/
-out/
-bin/
-# Editor temporary files
-*.swp
-*~
-# IDE files
-.idea/
-.vscode/
-*.iml
-*.iws
-*.ipr
-# Other
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# OS
 .DS_Store
-Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Env
+.env
+
+# Caches
+.pytest_cache/
+.mypy_cache/
+
