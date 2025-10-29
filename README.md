@@ -1,95 +1,46 @@
-# 🚀 Smart Todo App
+## Godseye OSINT Toolkit (MVP)
 
-A beautiful, feature-rich todo application built with vanilla HTML, CSS, and JavaScript. Features a stunning Notion-like design with advanced functionality.
+Godseye is a privacy-respecting, public-data OSINT toolkit. It aggregates open sources like crt.sh (certificate transparency), Wayback Machine, and GitHub to help investigate domains and usernames.
 
-## ✨ Features
+### Features (MVP)
+- Domain enrichment: subdomains via crt.sh, historical URLs via Wayback Machine
+- Username enrichment: presence checks on popular platforms + GitHub profile summary
+- HTTP API (FastAPI) and CLI (Typer)
 
-- **🎨 Stunning Design**: Glassmorphism effects with backdrop blur and modern gradients
-- **🔍 Smart Search**: Real-time search and filtering capabilities
-- **🏷️ Categories**: Organize todos by Personal, Work, Shopping, Health, and Learning
-- **⚡ Priority Levels**: Low, Medium, and High priority with color-coded badges
-- **📅 Due Dates**: Set deadlines with overdue warnings
-- **📊 Statistics Dashboard**: Live counts and progress tracking
-- **💾 Local Storage**: Data persists between browser sessions
-- **📱 Responsive Design**: Works perfectly on all devices
-- **✏️ Edit & Delete**: Full CRUD operations for todos
+### Quickstart
 
-## 🛠️ Technologies Used
+1) Python 3.10+
 
-- **HTML5**: Semantic markup and modern structure
-- **CSS3**: Advanced styling with CSS variables, flexbox, and grid
-- **JavaScript ES6+**: Modern JavaScript with classes and modules
-- **Font Awesome**: Beautiful icons for enhanced UX
-- **Local Storage**: Client-side data persistence
-
-## 🚀 Getting Started
-
-### Option 1: Direct Usage
-1. Clone or download this repository
-2. Open `index.html` in your web browser
-3. Start organizing your tasks!
-
-### Option 2: GitHub Pages (Recommended)
-1. Fork this repository to your GitHub account
-2. Go to Settings → Pages
-3. Select source as "Deploy from a branch"
-4. Choose `main` branch and `/ (root)` folder
-5. Click Save - your app will be live in minutes!
-
-## 📱 Features in Detail
-
-### Search & Filter
-- **Real-time Search**: Type to instantly find todos
-- **Status Filters**: View All, Pending, or Completed todos
-- **Smart Results**: Combines search and filter for precise results
-
-### Todo Management
-- **Add Todos**: Quick input with priority, category, and due date
-- **Edit Todos**: Click edit to modify existing tasks
-- **Complete/Undo**: Toggle completion status
-- **Delete**: Remove todos with confirmation
-
-### Visual Design
-- **Glassmorphism**: Modern translucent card design
-- **Color Coding**: Priority-based color schemes
-- **Responsive Layout**: Adapts to any screen size
-- **Smooth Animations**: Hover effects and transitions
-
-## 🎨 Customization
-
-The app uses CSS custom properties (variables) for easy theming:
-
-```css
-:root {
-    --primary-color: #6366f1;
-    --secondary-color: #8b5cf6;
-    --accent-color: #06b6d4;
-    /* ... more variables */
-}
+2) Create a virtual environment and install deps
+```bash
+python -m venv .venv
+. .venv/Scripts/activate  # Windows PowerShell: . .venv/Scripts/Activate.ps1
+pip install -r requirements.txt
 ```
 
-## 📁 Project Structure
+3) (Optional) Configure environment variables
+Copy `.env.example` to `.env` and add tokens if you have them.
 
+4) Run the CLI
+```bash
+python -m godseye.cli domain example.com
+python -m godseye.cli username torvalds
 ```
-├── index.html          # Main HTML file
-├── style.css          # Styles and animations
-├── script.js          # JavaScript functionality
-└── README.md          # This file
+
+5) Run the API
+```bash
+uvicorn godseye.api.main:app --reload
+# Open: http://127.0.0.1:8000/docs
 ```
 
-## 🌟 Live Demo
+### Environment variables
+- `GITHUB_TOKEN` (optional): increases GitHub rate limits for user lookups.
 
-Visit the live demo: [Your GitHub Pages URL will appear here]
+### Notes
+- Only public sources are used. Respect rate limits and each source's ToS.
+- Results are best-effort and may contain inaccuracies. Always verify critical findings.
 
-## 🤝 Contributing
+### License
+MIT
 
-Feel free to fork this project and submit pull requests for any improvements!
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-**Built with ❤️ using vanilla web technologies**
 
