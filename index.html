@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singly Linked List Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔗 Singly Linked List Game</h1>
+            <p>Learn and practice singly linked list operations through interactive gameplay!</p>
+        </header>
+
+        <div class="game-controls">
+            <button id="newGameBtn" class="btn btn-primary">New Game</button>
+            <button id="tutorialBtn" class="btn btn-secondary">Tutorial</button>
+            <div class="score-display">
+                <span>Score: <span id="score">0</span></span>
+                <span>Level: <span id="level">1</span></span>
+            </div>
+        </div>
+
+        <div class="game-area">
+            <div class="linked-list-visualization" id="linkedListVisual">
+                <!-- Linked list nodes will be rendered here -->
+            </div>
+
+            <div class="game-panel">
+                <div class="operation-panel">
+                    <h3>Operations</h3>
+                    <div class="operation-buttons">
+                        <button class="op-btn" data-operation="insert">Insert</button>
+                        <button class="op-btn" data-operation="delete">Delete</button>
+                        <button class="op-btn" data-operation="search">Search</button>
+                        <button class="op-btn" data-operation="reverse">Reverse</button>
+                    </div>
+                </div>
+
+                <div class="input-panel" id="inputPanel">
+                    <h3>Input</h3>
+                    <div class="input-group">
+                        <input type="number" id="valueInput" placeholder="Enter value" min="0" max="999">
+                        <button id="submitBtn" class="btn btn-success">Submit</button>
+                    </div>
+                </div>
+
+                <div class="feedback-panel" id="feedbackPanel">
+                    <h3>Feedback</h3>
+                    <div id="feedbackText" class="feedback-text"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tutorial-modal" id="tutorialModal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>How to Play</h2>
+                <div class="tutorial-content">
+                    <h3>🎯 Objective</h3>
+                    <p>Complete linked list operations to earn points and advance through levels!</p>
+                    
+                    <h3>🔧 Operations</h3>
+                    <ul>
+                        <li><strong>Insert:</strong> Add a new node with the specified value</li>
+                        <li><strong>Delete:</strong> Remove a node with the specified value</li>
+                        <li><strong>Search:</strong> Find if a value exists in the list</li>
+                        <li><strong>Reverse:</strong> Reverse the entire linked list</li>
+                    </ul>
+                    
+                    <h3>🎮 Gameplay</h3>
+                    <ul>
+                        <li>Choose an operation from the buttons</li>
+                        <li>Enter the required value (if needed)</li>
+                        <li>Submit your answer</li>
+                        <li>Earn points for correct operations</li>
+                        <li>Level up as you progress!</li>
+                    </ul>
+                    
+                    <h3>📚 What is a Singly Linked List?</h3>
+                    <p>A singly linked list is a data structure where each element (node) contains data and a reference to the next node. The last node points to null, indicating the end of the list.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
